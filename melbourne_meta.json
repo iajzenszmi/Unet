@@ -1,0 +1,18 @@
+{
+  "region": "Melbourne, AU (synthetic)",
+  "start": "2025-06-01T00:00:00",
+  "n_hours": 5000,
+  "threshold_mmph": 0.1,
+  "params": {
+    "mrms_sigma": 0.23,
+    "mrms_eps": 0.04,
+    "imerg_sigma": 0.28,
+    "imerg_eps": 0.05,
+    "mw_sigma": 0.32,
+    "mw_bias": 1.22,
+    "mw_fa_prob": 0.08,
+    "mw_fa_k": 1.2,
+    "mw_fa_theta": 0.6,
+    "mw_fa_scale": 0.9
+  }
+}
