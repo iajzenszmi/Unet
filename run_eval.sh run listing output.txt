@@ -1,0 +1,60 @@
+ian@debian:~/Downloads/unet$ nano gen_synth_precip_melbourne.py
+ian@debian:~/Downloads/unet$ ./run_eval.sh
+{
+  "MRMS": {
+    "CC": 0.967,
+    "POD": 1.0
+  },
+  "IMERG": {
+    "CC": 0.921,
+    "POD": 0.999
+  },
+  "MWCOMB": {
+    "CC": 0.953,
+    "POD": 1.0
+  }
+}
+f77 -O2 -Wall -Wextra -std=f2008 precip_unet_eval.f90 -o eval
+precip_unet_eval.f90:156:26:
+
+  156 |     integer :: nfull, i, k, j, base
+      |                          1
+Warning: Unused variable ‘k’ declared at (1) [-Wunused-variable]
+precip_unet_eval.f90:8:14:
+
+    8 |   integer :: i, n, ios
+      |              1
+Warning: Unused variable ‘i’ declared at (1) [-Wunused-variable]
+precip_unet_eval.f90:8:22:
+
+    8 |   integer :: i, n, ios
+      |                      1
+Warning: Unused variable ‘ios’ declared at (1) [-Wunused-variable]
+precip_unet_eval.f90:4:17:
+
+    4 |   integer :: narg
+      |                 1
+Warning: Unused variable ‘narg’ declared at (1) [-Wunused-variable]
+ 
+ ==================== NATIVE (no aggregation) ====================
+ Model  |   CC    POD     FAR     CSI     Bias
+ -------+-----------------------------------------
+ MRMS  |  0.967  1.000   0.000   1.000   1.066
+ IMERG |  0.921  0.999   0.276   0.724   1.075
+ MWCOM |  0.953  1.000   0.186   0.814   1.356
+ 
+ ==================== DAILY aggregation ====================
+ Model  |   CC    POD     FAR     CSI     Bias
+ -------+-----------------------------------------
+ MRMS  |  0.993  1.000   0.053   0.947   1.066
+ IMERG |  0.986  1.000   0.077   0.923   1.074
+ MWCOM |  0.988  1.000   0.143   0.857   1.356
+ 
+ ==================== MONTHLY aggregation ====================
+ Model  |   CC    POD     FAR     CSI     Bias
+ -------+-----------------------------------------
+ MRMS  |  1.000  1.000   0.000   1.000   1.061
+ IMERG |  0.996  1.000   0.000   1.000   1.068
+ MWCOM |  0.997  1.000   0.000   1.000   1.338
+ian@debian:~/Downloads/unet$ 
+
